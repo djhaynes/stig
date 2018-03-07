@@ -91,6 +91,8 @@ Boolean)
 
 - `node['stig']['network']['ipv6']` = Disable IPV6 ("no" = disable, "yes" = enable) (String)
 
+- `node['stig']['network']['ipv6_active_in_kernel']` = If IPv6 is disabled at the kernel level, various SYSCTL settings for IPv6 will cause the chef script to fail. You should set this to to 'no', if you have disabled IPv6 in the kernel.
+
 ( See https://supermarket.chef.io/cookbooks/sysctl )
 - `node['sysctl']['*']` = Sets configuration in sysctl config file. See default attributes.
 

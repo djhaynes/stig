@@ -10,11 +10,17 @@
 # Ubuntu 6.15
 
 source = ''
-if %w[rhel fedora centos].include?(node['platform'])
+# Fixed to check platform_family versus platform
+#    'redhat', 'fedora', 'centos' are platforms; 
+#    'rhel' is the platform_family that includes those platforms
+if node['platform_family'] == 'rhel'
   source = 'etc_main.cf_rhel.erb'
 end
 
-if %w[debian ubuntu].include?(node['platform'])
+# Fixed to check platform_family versus platform
+#    'debian', 'ubuntu', 'linuxmint' are platforms; 
+#    'debian' is the platform_family that includes those platforms
+if node['platform_family'] == 'debian'
   source = 'etc_main.cf_ubuntu.erb'
 end
 
